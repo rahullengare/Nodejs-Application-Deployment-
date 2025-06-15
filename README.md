@@ -1,4 +1,24 @@
 # Nodejs Application Deployment
+## **Node.js Introduction:**
+
+Node.js is a free and open-source runtime that lets you run JavaScript code outside the browser. It's built on Google’s V8 engine, making it fast and efficient for building web servers, APIs, and real-time apps.
+
+It’s popular because it handles many requests at once without slowing down, supports a huge library of packages through NPM, and works on all major systems. Plus, using JavaScript for both frontend and backend keeps development simple.
+
+## About Project:
+
+This project demonstrates how to deploy a basic **Node.js application** on an **AWS EC2 instance**. The main goal is to take a simple Node.js app and host it on a cloud server so it can be accessed through a public IP.
+
+The process includes setting up an EC2 instance, installing Node.js, running the app, managing it in the background using **PM2**, and using **Nginx** as a reverse proxy to expose the app on the default HTTP port (80). This is a great hands-on way to learn the basics of deploying backend applications to the cloud.
+
+## Technologies Used:
+
+- **Node.js** – Backend runtime
+- **NPM Packages** – For adding helpful tools and libraries
+- **PM2**: Process manager that keeps the Node.js app running in the background
+- **Nginx**: Web server used to forward HTTP requests to the Node.js app.
+- **AWS EC2 (Amazon Elastic Compute Cloud)**: Virtual server where the app is hosted.
+- **Amazon Linux**: The operating system used on the EC2 instance.
 ## Step 1: Launch an EC2 Instance
 
 1. Go to AWS Console → EC2 
