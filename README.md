@@ -29,11 +29,14 @@ The process includes setting up an EC2 instance, installing Node.js, running the
     - Key pair → pem_server_key
     - security group → launch-wizard-1
 
+![Project Screenshot](/images/instance.jpg)
+
 ## Step 2: SSH to connect the EC2 Instance
 
 ```bash
 ssh -i "pem-server-key.pem" ec2-user@ec2-54-144-113-139.compute-1.amazonaws.com
 ```
+![Project Screenshot](/images/connect-instance.jpg)
 
 ## Step 3: Installing node app
 
@@ -72,7 +75,7 @@ sudo vim package.json
 
 ```bash
 {
-    "name": "node-app",
+    "name": "nodeapp",
     "version": "1.0.0",
     "description": "Simple Node.js app",
     "main": "app.js",
@@ -92,18 +95,17 @@ sudo vim app.js
 ```
 
 ```bash
-{
-    "name": "node-app",
-    "version": "1.0.0",
-    "description": "Simple Node.js app",
-    "main": "app.js",
-    "scripts": {
-      "start": "node app.js"
-    },
-    "dependencies": {
-      "express": "^4.18.2"
-    }
-  }
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello, this is a Node.js application running!');
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
 ```
 
 7. install packages in nodeapp **directory**
@@ -123,6 +125,7 @@ sudo npm start app.js
 ```bash
 <enter-your-public-ip>:3000
 ```
+![Project Screenshot](/images/nodeapp-3000.jpg)
 
 10. Terminal not present that why not any changes is possible → background nodeapp run
 
@@ -182,10 +185,17 @@ sudo systemctl restart nginx
 ```bash
 <enter-your-public-ip-only-not-port>
 ```
+![Project Screenshot](/images/nodeapp-run.jpg)
 
-1. Now Your **Node.js app** has successfully deployed on your EC2 instance
-2. Terminate Your instance 
-- go to AWS console → click on instance
-- select your instance
-- click on Instance state
-- click on terminate (delete) instance
+19. Now Your **Node.js app** has successfully deployed on your EC2 instance
+   
+## Step 4: Terminating Your instance
+
+1. Your use are done then got to AWS console 
+2. Click on EC2 → instance 
+3. Select instance You want to terminated
+4. Click on Instance state 
+5. Choose **Terminate (delete) instance**
+6. Now click delete
+
+![Project Screenshot](/images/delete-instance.jpg)
